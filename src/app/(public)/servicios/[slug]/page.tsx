@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { getService, getServices } from "@/lib/content-store";
 import { whatsappLink } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = await getService(slug);
   if (!service) return { title: "Servicio" };
-  return { title: service.title, description: service.summary };
+  return { title: service.title, description: service.summary, ...pageMeta(`/servicios/${service.slug}`) };
 }
 
 export default async function ServicioPage({ params }: Props) {

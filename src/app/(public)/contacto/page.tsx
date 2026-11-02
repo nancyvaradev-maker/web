@@ -4,10 +4,12 @@ import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
 import { Stamp } from "@/components/stamp";
 import { studio, whatsappLink } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contacto",
   description: "Escribile a Nancy Vara por WhatsApp o por email para coordinar una consulta contable.",
+  ...pageMeta("/contacto"),
 };
 
 export default function ContactoPage() {

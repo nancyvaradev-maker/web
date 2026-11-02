@@ -3,10 +3,12 @@ import Link from "next/link";
 
 import { PageHero } from "@/components/page-hero";
 import { whatsappLink } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Cómo consultar",
   description: "Elegí el servicio, dejanos tus datos y, si la consulta es urgente, escribinos por WhatsApp.",
+  ...pageMeta("/como-consultar"),
 };
 
 const steps = [

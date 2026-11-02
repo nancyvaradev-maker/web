@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Instrument_Sans, Instrument_Serif } from "next/font/google";
 
+import { baseOpenGraph, shareImage } from "@/lib/seo";
+
 import "./globals.css";
 
 const sans = Instrument_Sans({
@@ -29,11 +31,8 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  openGraph: {
-    type: "website",
-    locale: "es_AR",
-    siteName: "Nancy Vara · Contadora Pública",
-  },
+  openGraph: baseOpenGraph,
+  twitter: { card: "summary_large_image", images: [shareImage] },
   title: {
     default: "Nancy Vara · Contadora Pública",
     template: "%s · Nancy Vara",

@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { RichText } from "@/components/rich-text";
 import { getPost } from "@/lib/content-store";
 import { formatDate } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -13,7 +14,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return { title: "Nota" };
-  return { title: post.title, description: post.excerpt };
+  return {
+    title: post.title,
+    description: post.excerpt,
+    ...pageMeta(`/blog/${post.slug}`, {
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      ...(post.image ? { images: [{ url: post.image, alt: post.title }] } : {}),
+    }),
+  };
 }
 
 export default async function PostPage({ params }: Props) {

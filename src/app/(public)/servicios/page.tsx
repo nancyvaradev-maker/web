@@ -3,10 +3,12 @@ import type { Metadata } from "next";
 import { Ledger } from "@/components/ledger";
 import { PageHero } from "@/components/page-hero";
 import { getServices } from "@/lib/content-store";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Servicios",
   description: "Monotributo, Convenio Multilateral, IVA, Ingresos Brutos, balances, flujo de caja, Ganancias y liquidación de sueldos.",
+  ...pageMeta("/servicios"),
 };
 
 export default async function ServiciosPage() {

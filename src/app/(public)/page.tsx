@@ -5,6 +5,9 @@ import { Ledger } from "@/components/ledger";
 import { Stamp } from "@/components/stamp";
 import { getContent } from "@/lib/content-store";
 import { formatDate, studio, whatsappLink } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta("/");
 
 const debe = [
   ["Monotributo", "Recategorización semestral y control de la categoría"],

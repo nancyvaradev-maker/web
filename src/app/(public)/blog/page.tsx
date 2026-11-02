@@ -5,10 +5,12 @@ import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { getPosts } from "@/lib/content-store";
 import { formatDate } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Blog",
   description: "Novedades fiscales y criterios de gestión para pymes: Monotributo, Ingresos Brutos, financiamiento y flujo de caja.",
+  ...pageMeta("/blog"),
 };
 
 export default async function BlogPage() {

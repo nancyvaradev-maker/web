@@ -3,11 +3,13 @@ import Image from "next/image";
 
 import { Stamp } from "@/components/stamp";
 import { studio, whatsappLink } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Quiénes somos",
   description:
     "Nancy Vara, Contadora Pública egresada de la UNTREF. Gestión de pymes, impuestos y flujo de caja. Matrícula CPCECABA.",
+  ...pageMeta("/quienes-somos"),
 };
 
 export default function QuienesSomosPage() {
