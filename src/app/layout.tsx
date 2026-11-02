@@ -21,7 +21,19 @@ const mono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3456");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "Nancy Vara · Contadora Pública",
+  },
   title: {
     default: "Nancy Vara · Contadora Pública",
     template: "%s · Nancy Vara",
