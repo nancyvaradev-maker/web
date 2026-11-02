@@ -175,19 +175,16 @@ export async function saveUploadedImage(file: FormDataEntryValue | null, prefix:
   const safePrefix = prefix.replace(/[^a-z0-9-]/gi, "").slice(0, 40) || "imagen";
   const filename = `${safePrefix}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}${extension}`;
   if (process.env.BLOB_READ_WRITE_TOKEN) {
-    const blob = await put(`uploads/${filename}`, file, { access: "public", contentType: file.type });
-    return blob.url;
+    await put(`uploads/${filename}`, file, { access: "private", contentType: file.type });
+  } else {
+    await mkdir(uploadsDir, { recursive: true });
+    await writeFile(path.join(uploadsDir, filename), Buffer.from(await file.arrayBuffer()));
   }
-  await mkdir(uploadsDir, { recursive: true });
-  await writeFile(path.join(uploadsDir, filename), Buffer.from(await file.arrayBuffer()));
   return `/uploads/${filename}`;
 }
 
-const blobHost = /^https:\/\/[a-z0-9-]+\.public\.blob\.vercel-storage\.com\/[^\s"'<>]+$/i;
-
 export function publicAssetPath(value: string, fallback: string) {
   const next = value.trim();
-  if (blobHost.test(next)) return next;
   if (!next.startsWith("/") || next.startsWith("//") || next.includes("..") || next.includes("\\")) return fallback;
   return next;
 }
