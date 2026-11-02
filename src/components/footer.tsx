@@ -65,6 +65,16 @@ export function Footer() {
                 Facebook
               </a>
             </li>
+            <li className="pt-4">
+              <a
+                href="http://www.thesib.dev"
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper/45 hover:text-paper"
+              >
+                Desarrollado por sib.dev
+              </a>
+            </li>
           </ul>
         </div>
       </div>
