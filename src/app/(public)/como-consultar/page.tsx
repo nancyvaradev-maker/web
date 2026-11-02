@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { PageHero } from "@/components/page-hero";
-import { studio } from "@/lib/site";
+import { whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Cómo consultar",
@@ -56,7 +56,7 @@ export default function ComoConsultarPage() {
           <Link href="/servicios" className="bg-violet-deep px-6 py-3.5 font-mono text-xs uppercase tracking-[0.16em] text-white hover:bg-ink">
             Ver servicios
           </Link>
-          <a href={studio.whatsapp} target="_blank" rel="noreferrer" className="text-sm underline decoration-violet decoration-2 underline-offset-[6px]">
+          <a href={whatsappLink()} target="_blank" rel="noreferrer" className="text-sm underline decoration-violet decoration-2 underline-offset-[6px]">
             o abrir WhatsApp
           </a>
         </div>

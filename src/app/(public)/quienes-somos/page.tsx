@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { Stamp } from "@/components/stamp";
-import { studio } from "@/lib/site";
+import { studio, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Quiénes somos",
@@ -80,7 +80,7 @@ export default function QuienesSomosPage() {
           </p>
         </div>
         <a
-          href={studio.whatsapp}
+          href={whatsappLink()}
           target="_blank"
           rel="noreferrer"
           className="inline-flex bg-violet-deep px-6 py-3.5 font-mono text-xs uppercase tracking-[0.16em] text-white hover:bg-ink"

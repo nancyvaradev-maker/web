@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Ledger } from "@/components/ledger";
 import { Stamp } from "@/components/stamp";
 import { getContent } from "@/lib/content-store";
-import { formatDate, studio } from "@/lib/site";
+import { formatDate, studio, whatsappLink } from "@/lib/site";
 
 const debe = [
   ["Monotributo", "Recategorización semestral y control de la categoría"],
@@ -64,7 +64,7 @@ export default async function HomePage() {
                 Ver servicios
               </Link>
               <a
-                href={studio.whatsapp}
+                href={whatsappLink()}
                 target="_blank"
                 rel="noreferrer"
                 className="text-sm text-ink underline decoration-violet decoration-2 underline-offset-[6px] hover:text-violet-deep"

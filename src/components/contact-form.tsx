@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-import { studio } from "@/lib/site";
+import { whatsappLink } from "@/lib/site";
 
 const fields = [
   { name: "nombre", label: "Nombre", autoComplete: "name", type: "text" },
@@ -21,7 +21,7 @@ export function ContactForm() {
     const telefono = String(data.get("telefono") || "").trim();
     const mensaje = String(data.get("mensaje") || "").trim();
     const text = `Hola Nancy, soy ${nombre}.\nEmail: ${email}\nTeléfono: ${telefono}\n\n${mensaje}`;
-    window.open(`${studio.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    window.open(whatsappLink(text), "_blank", "noopener,noreferrer");
     setSent(true);
   }
 

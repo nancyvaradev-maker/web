@@ -10,6 +10,12 @@ export const studio = {
   facebook: "https://www.facebook.com/profile.php?id=100092194896400",
 };
 
+export const whatsappGreeting = "Hola Nancy, te escribo desde tu web. Quería hacerte una consulta.";
+
+export function whatsappLink(text = whatsappGreeting) {
+  return `${studio.whatsapp}?text=${encodeURIComponent(text)}`;
+}
+
 export const nav = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },

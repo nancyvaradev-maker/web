@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getService, getServices } from "@/lib/content-store";
-import { studio } from "@/lib/site";
+import { whatsappLink } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -37,7 +37,7 @@ export default async function ServicioPage({ params }: Props) {
             <h1 className="mt-4 font-display text-5xl leading-[1.02] text-ink md:text-7xl">{service.title}</h1>
             <p className="mt-6 font-display text-2xl italic text-violet-deep">{service.tagline}</p>
             <a
-              href={`${studio.whatsapp}?text=${encodeURIComponent(`Hola Nancy, quiero consultar por ${service.title}.`)}`}
+              href={whatsappLink(`Hola Nancy, te escribo desde tu web. Quiero consultar por ${service.title}.`)}
               target="_blank"
               rel="noreferrer"
               className="mt-10 inline-flex bg-violet-deep px-6 py-3.5 font-mono text-xs uppercase tracking-[0.16em] text-white hover:bg-ink"

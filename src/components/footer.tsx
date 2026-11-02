@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { FacebookIcon, InstagramIcon } from "@/components/social-icons";
 import { Stamp } from "@/components/stamp";
-import { nav, studio } from "@/lib/site";
+import { nav, studio, whatsappLink } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -36,7 +36,7 @@ export function Footer() {
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-violet">Contacto</p>
           <ul className="mt-4 space-y-2 text-sm text-paper/80">
             <li>
-              <a href={studio.whatsapp} target="_blank" rel="noreferrer" className="hover:text-paper">
+              <a href={whatsappLink()} target="_blank" rel="noreferrer" className="hover:text-paper">
                 WhatsApp <span className="font-mono">{studio.phoneDisplay}</span>
               </a>
             </li>

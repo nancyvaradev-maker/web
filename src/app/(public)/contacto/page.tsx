@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
 import { Stamp } from "@/components/stamp";
-import { studio } from "@/lib/site";
+import { studio, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -20,7 +20,7 @@ export default function ContactoPage() {
             <div className="border-b border-line py-5">
               <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/55">WhatsApp</dt>
               <dd className="mt-1">
-                <a href={studio.whatsapp} target="_blank" rel="noreferrer" className="font-mono text-2xl text-violet-deep hover:text-ink">
+                <a href={whatsappLink()} target="_blank" rel="noreferrer" className="font-mono text-2xl text-violet-deep hover:text-ink">
                   {studio.phoneDisplay}
                 </a>
               </dd>

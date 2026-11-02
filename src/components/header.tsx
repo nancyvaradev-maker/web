@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { nav, studio } from "@/lib/site";
+import { nav, studio, whatsappLink } from "@/lib/site";
 
 function isCurrent(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -47,7 +47,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href={studio.whatsapp}
+            href={whatsappLink()}
             target="_blank"
             rel="noreferrer"
             className="hidden border border-ink px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink hover:bg-ink hover:text-paper sm:inline-flex"
