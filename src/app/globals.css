@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #fbf9f4;
+  --ink: #34495e;
+  --violet: #a061ed;
+  --violet-deep: #6e32e9;
+  --line: #e7e1d6;
+  --rule: #ece6f7;
+  --sage: #c9d2c6;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-violet: var(--violet);
+  --color-violet-deep: var(--violet-deep);
+  --color-line: var(--line);
+  --color-rule: var(--rule);
+  --color-sage: var(--sage);
+  --font-sans: var(--font-instrument-sans);
+  --font-display: var(--font-instrument-serif);
+  --font-mono: var(--font-plex-mono);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-instrument-sans), sans-serif;
+}
+
+::selection {
+  background: #a061ed;
+  color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+.ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    var(--rule) 31px,
+    var(--rule) 32px
+  );
+}
+
+.double-rule {
+  border-bottom: 3px double var(--ink);
+}
